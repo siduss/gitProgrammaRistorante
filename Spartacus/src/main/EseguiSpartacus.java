@@ -11,6 +11,14 @@ public class EseguiSpartacus {
 	private Parser parser;
 	private Spartacus spartacus;
 
+	public Spartacus getSpartacus() {
+		return spartacus;
+	}
+
+	public void setSpartacus(Spartacus spartacus) {
+		this.spartacus = spartacus;
+	}
+
 	public EseguiSpartacus() {
 		this.parser = new Parser();
 
@@ -43,7 +51,7 @@ public class EseguiSpartacus {
 
 	public static void main(String[] argc) {
 		EseguiSpartacus programma = new EseguiSpartacus();
-		List<Utente> lu = programma.spartacus.getListaUtenti();
+		List<Utente> lu = programma.getSpartacus().getListaUtenti();
 		Scanner lineInput = new Scanner(System.in);
 		System.out.println("Puoi eseguire il login con questi utenti: ");
 		for (Utente u : lu) {

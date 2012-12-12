@@ -10,7 +10,6 @@ import main.ParserComandiTavolo;
 import main.Spartacus;
 import main.Tavolo;
 import main.Utente;
-import main.Voce;
 import utility.Utility;
 
 public class ComandoApriTavolo implements Comando {
@@ -35,17 +34,19 @@ public class ComandoApriTavolo implements Comando {
 			ParserComandiTavolo pct = new ParserComandiTavolo();
 			try {
 				int i = -1;
-				while (i != 0) {
+				while (i != 0 || t.isInUso()) {
 					System.out.println("Sei dentro il tavolo: " + t.getNumeroTavolo() + ". Puoi eseguire queste operazioni");
 					System.out.println(" (0) Esci dal tavolo"); // esce dal tavolo
-					System.out.println(" (1) Cancella voce/i del tavolo"); //cencella tutte le voci del tavolo
-					System.out.println(" (2) Prendi ordine del tavolo"); //prende l'ordine del tavolo
+					System.out.println(" (1) Prendi ordine del tavolo"); //prende l'ordine del tavolo
+					System.out.println(" (2) Dammi pre-conto");
 					System.out.println(" (3) Aggiungi un coperto");
-					System.out.println(" (4) Rimuovi un coperto");
-					System.out.println(" (5) Dammi ordine del tavolo"); ////fa la stampa (a video) delle voci del tavolo con la quantita
-					System.out.println(" (6) Dammi pre-conto");
-					System.out.println(" (7) Dammi conto");
-					System.out.println(" (8) Dammi fattura");
+					
+//					System.out.println(" (4) Cancella voce/i del tavolo"); //cencella tutte le voci del tavolo
+//					System.out.println(" (5) Rimuovi un coperto");
+//					System.out.println(" (6) Dammi ordine del tavolo"); ////fa la stampa (a video) delle voci del tavolo con la quantita
+//					System.out.println(" (7) Dammi conto");
+//					System.out.println(" (8) Dammi fattura");
+					
 					i = Integer.parseInt(in.readLine());
 					pct.parseCommand(i).esegui(t, utente);
 				}
